@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rezeptfänger – Datenschutzerklärung</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5a5a5a;
+    --accent: #b3541e;
+    --card: #f6f2ee;
+    --border: #e0d8cf;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16130f;
+      --fg: #f2ede6;
+      --muted: #b8ada0;
+      --accent: #e2946a;
+      --card: #211c16;
+      --border: #352d24;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 4rem;
+  }
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.25rem;
+  }
+  .subtitle {
+    color: var(--muted);
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+  h2 {
+    font-size: 1.15rem;
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+  }
+  p, li { font-size: 0.98rem; }
+  ul { padding-left: 1.25rem; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+  }
+  .todo {
+    background: var(--card);
+    border: 1px dashed var(--accent);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin: 0.5rem 0 1.25rem;
+  }
+  .legal-note {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 1.5rem 0;
+  }
+  a { color: var(--accent); }
+  code {
+    background: var(--card);
+    border-radius: 4px;
+    padding: 0.1rem 0.35rem;
+    font-size: 0.9em;
+  }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Rezeptfänger – Datenschutzerklärung</h1>
+  <p class="subtitle">Diese Erklärung beschreibt, welche Daten die App <strong>Rezeptfänger</strong> verarbeitet, wo sie gespeichert werden und an wen sie zu welchem Zweck übermittelt werden.</p>
+
+  <div class="legal-note">
+    Dieser Text ist ein fachlicher Entwurf auf Basis der tatsächlichen technischen Architektur der App – <strong>keine Rechtsberatung</strong>. Insbesondere die Drittlandübermittlung an Google (Abschnitt „Rezept-Erfassung per KI") und der noch offene Punkt zum Auftragsverarbeitungsvertrag mit Supabase (Abschnitt „Empfänger / Auftragsverarbeiter") sollten vor Veröffentlichung von einer sachkundigen Person geprüft werden.
+  </div>
+
+  <h2>1. Verantwortlicher</h2>
+  <div class="card">
+    Thorsten Hungenberg<br>
+    Karolingerstraße 94, 40223 Düsseldorf<br>
+    E-Mail: hungenberg.software@gmail.com
+  </div>
+
+  <h2>2. Kurzübersicht</h2>
+  <p>Rezeptfänger speichert deine Rezepte, deinen Wochenplan, deine Einkaufsliste und deine Supermarkt-Routen <strong>in erster Linie lokal auf deinem Gerät</strong> – das ist die maßgebliche Datenquelle der App. Damit du dieselben Daten auf mehreren Geräten und mit anderen Haushaltsmitgliedern teilen kannst, werden dieselben Daten zusätzlich mit einem Server (Supabase, Betrieb in Frankfurt am Main) abgeglichen. Für das automatische Auslesen von Rezepten aus Fotos, Links oder Sprachaufnahmen wird der jeweilige Inhalt an Google (Gemini-API) übermittelt. Ein Konto ist nicht zwingend erforderlich; ohne gesichertes Konto läuft die Nutzung anonym.</p>
+
+  <h2>3. Welche Daten werden serverseitig verarbeitet – und wofür</h2>
+  <p><strong>Haushalts-Nutzdaten</strong> (Rezepte, Wochenplan, Einkaufsliste, Supermarkt-Routen, Rezeptfotos): Diese Daten gehören dem <strong>Haushalt</strong>, nicht einer einzelnen Person – es gibt kein Feld, das eine Zeile technisch verbindlich einer Person zuordnet. Rezepte tragen zusätzlich einen Namens-Schnappschuss der erstellenden Person (<code>author</code>) sowie eine interne Kennung der erstellenden Person (<code>author_user_id</code>), über die die App den <em>aktuellen</em> Anzeigenamen auflöst. Diese Kennung ist nicht fest mit dem Konto verknüpft (kein automatisches Löschen bei Konto-Löschung) und bleibt daher auch stehen, wenn die erstellende Person ihr Konto später löscht, solange sie nicht das letzte Mitglied des Haushalts ist (siehe Abschnitt 5).</p>
+  <p><strong>Konto/Anmeldung:</strong> Bei rein anonymer Nutzung wird keine E-Mail-Adresse gespeichert. Wird ein Konto „gesichert" (z. B. um es auf einem neuen Gerät wiederherzustellen), wird die angegebene E-Mail-Adresse gespeichert.</p>
+  <p><strong>Haushalts-Mitgliedschaft:</strong> welchem Haushalt ein Konto angehört, ein selbstgesetzter Anzeigename (kein Klarname erforderlich, keine E-Mail) und eine Rolle (Eigentümer/Mitglied) – sichtbar für die anderen Mitglieder desselben Haushalts.</p>
+  <p><strong>KI-Guthaben:</strong> ein Zähler des verbleibenden KI-Nutzungskontingents je Person und je Haushalt (aktuell ein Startguthaben, keine Zahlungsdaten).</p>
+  <p><strong>Lizenz-/Kaufstatus:</strong> der Freischaltstatus des Kontos.</p>
+  <p>Rechtsgrundlage für diese Verarbeitungen ist die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO) – sie sind die technische Voraussetzung für Haushalts-Synchronisierung, gemeinsame Nutzung und Guthabenverwaltung. Für Maßnahmen gegen Missbrauch (z. B. Ratenbegrenzung) kann zusätzlich ein berechtigtes Interesse (lit. f) einschlägig sein. <span style="color: var(--muted); font-size: 0.9em;">(Eigene fachliche Einschätzung, keine geprüfte Rechtsauffassung.)</span></p>
+
+  <h2>4. Rezept-Erfassung per KI (Google Gemini)</h2>
+  <p>Wenn du ein Rezept per Foto, Link oder Sprachaufnahme erfassen lässt, übermittelt die App das jeweilige Foto, den abgerufenen Seiteninhalt bzw. die Sprachaufnahme zur Verarbeitung an <strong>Google</strong> (Gemini-API). Diese Übermittlung läuft über eine eigene, von uns betriebene Vermittlungsstelle im Hintergrund; dein Zugangsschlüssel für diesen Dienst liegt dabei nie in der App, sondern ausschließlich serverseitig bei uns.</p>
+  <p>Diese Datenübermittlung erfolgt in ein <strong>Drittland (USA)</strong>, da Google LLC dort ansässig ist. Einzelheiten zur Verarbeitung durch Google findest du in Googles eigenen Datenschutzhinweisen zur Gemini-API.</p>
+  <div class="todo">TODO vor Veröffentlichung: Prüfen, ob mit Google Standardvertragsklauseln bestehen oder eine EU-Datenresidenz-Option genutzt wird, und hier ergänzen. Im Code/Vertrag aktuell nicht ersichtlich.</div>
+  <p>Die Rezept-Erfassung ist eine Kernfunktion der App; sie läuft ebenfalls über die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO), nicht über eine gesonderte Einwilligung. <span style="color: var(--muted); font-size: 0.9em;">(Eigene fachliche Einschätzung, keine geprüfte Rechtsauffassung.)</span></p>
+
+  <h2>5. Speicherdauer und Löschung</h2>
+  <p>Deine Daten bleiben gespeichert, solange dein Konto bzw. dein Haushalt besteht. Einzelheiten zur Löschung von Konto und Server-Daten – inklusive der Fälle „ich bin nicht das letzte Haushaltsmitglied" und „ich bin das letzte Haushaltsmitglied" – findest du in der eigenen Ressource <a href="konto-loeschen.html">„Konto und Daten löschen"</a>.</p>
+  <p><strong>Lokale Daten</strong> (die Rezeptdatenbank und Fotos auf deinem Gerät) sind davon nicht betroffen – sie verschwinden ausschließlich durch Deinstallation der App.</p>
+
+  <h2>6. Empfänger / Auftragsverarbeiter</h2>
+  <ul>
+    <li><strong>Supabase</strong> (Datenbank, Foto-Speicher, Authentifizierung), Projekt-Region Frankfurt am Main (EU).</li>
+    <li><strong>Google</strong> (Gemini-API, Drittlandübermittlung USA) – siehe Abschnitt 4.</li>
+  </ul>
+  <div class="todo">TODO vor Veröffentlichung: Klären, ob und wo ein Auftragsverarbeitungsvertrag mit Supabase abgeschlossen ist (Supabase bietet ein eigenes DPA zum Abschluss im Dashboard an), und hier bestätigen.</div>
+  <p>Ein Analytics- oder Tracking-Dienst wird nicht eingesetzt.</p>
+
+  <h2>7. Server-Logfiles / Hosting</h2>
+  <p>Diese Web-Seite selbst (Datenschutzerklärung und Lösch-Ressource) wird bei <strong>GitHub Pages</strong> gehostet. Beim Aufruf der Seite verarbeitet GitHub automatisch technische Zugriffsdaten (u. a. IP-Adresse, Datum/Uhrzeit des Zugriffs, aufgerufene Datei, verwendeter Browser) in Server-Logfiles – unabhängig davon, ob auf der Seite selbst ein Tracking-Skript eingebunden ist. Rechtsgrundlage ist das berechtigte Interesse am sicheren und funktionsfähigen Betrieb der Seite (Art. 6 Abs. 1 lit. f DSGVO). Einzelheiten zur Verarbeitung durch GitHub (GitHub, Inc./GitHub B.V.) finden sich in GitHubs eigenen Datenschutzhinweisen.</p>
+
+  <h2>8. Deine Rechte</h2>
+  <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch gegen die Verarbeitung deiner Daten. Wende dich dazu an die in Abschnitt 1 genannte Kontaktadresse. Außerdem hast du das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
+
+  <h2>9. Kinder</h2>
+  <p>Die App enthält keine technische Alterskontrolle. Sie ist nicht für die gezielte Nutzung durch Kinder konzipiert, kann eine Nutzung durch Kinder aber nicht ausschließen.</p>
+
+  <h2>10. Änderungen dieser Erklärung</h2>
+  <p>Diese Erklärung wird bei Bedarf angepasst, wenn sich die Verarbeitung ändert.</p>
+  <p>Stand: 06.08.2026</p>
+
+  <!-- TODO: Sobald Billing eingeführt wird (Store-Session, Projektdoku Abschnitt 11a), wird der jeweilige Store (z. B. Google Play) als Zahlungsabwickler zu einem weiteren Auftragsverarbeiter/Empfänger. Bei Einführung hier in Abschnitt 6 ergänzen -- nicht vergessen, nicht vorab erfinden. -->
+
+  <footer>
+    Stand dieser Seite: siehe Datum der letzten Änderung im Quell-Repository. Siehe auch: <a href="konto-loeschen.html">Konto und Daten löschen</a>.
+  </footer>
+</main>
+</body>
+</html>
