@@ -4,6 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rezeptfänger – Datenschutzerklärung</title>
+<!--
+  FASSUNG VOM 03.10.2026 -- ersetzt die Fassung vom 06.08.2026.
+
+  Seit dieser Fassung steht die Datei hier VOLLSTÄNDIG mit echten Angaben
+  (vorher Platzhalter, echte Angaben nur im öffentlichen Repo
+  TeeAitch89/-rezeptfaenger-web). Grund: Die Datei soll 1:1 hinüberkopiert
+  werden können, ohne Nacharbeit. Die Angaben sind ohnehin öffentlich.
+
+  VORAUSSETZUNGEN -- der Text beschreibt diesen Zustand. Vor dem Hochladen
+  muss beides erledigt sein, sonst stimmt die Erklärung nicht:
+    1. Gemini-API mit Abrechnung (bezahlte Stufe). In der kostenlosen Stufe
+       darf Google Inhalte zur Produktverbesserung nutzen -- Abschnitt 5
+       wäre dann falsch.
+    2. Auftragsverarbeitungsvertrag (DPA) mit Supabase abgeschlossen
+       (Supabase-Dashboard, rechtliche Dokumente).
+-->
 <style>
   :root {
     color-scheme: light dark;
@@ -52,32 +68,20 @@
     margin-top: 2.25rem;
     margin-bottom: 0.75rem;
   }
+  h3 {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
   p, li { font-size: 0.98rem; }
   ul { padding-left: 1.25rem; }
+  li { margin: 0.25rem 0; }
   .card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 1rem 1.25rem;
     margin: 1rem 0;
-  }
-  .todo {
-    background: var(--card);
-    border: 1px dashed var(--accent);
-    border-radius: 10px;
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
-    color: var(--accent);
-    margin: 0.5rem 0 1.25rem;
-  }
-  .legal-note {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1rem 1.25rem;
-    font-size: 0.9rem;
-    color: var(--muted);
-    margin: 1.5rem 0;
   }
   a { color: var(--accent); }
   code {
@@ -100,63 +104,100 @@
   <h1>Rezeptfänger – Datenschutzerklärung</h1>
   <p class="subtitle">Diese Erklärung beschreibt, welche Daten die App <strong>Rezeptfänger</strong> verarbeitet, wo sie gespeichert werden und an wen sie zu welchem Zweck übermittelt werden.</p>
 
-  <div class="legal-note">
-    Dieser Text ist ein fachlicher Entwurf auf Basis der tatsächlichen technischen Architektur der App – <strong>keine Rechtsberatung</strong>. Insbesondere die Drittlandübermittlung an Google (Abschnitt „Rezept-Erfassung per KI") und der noch offene Punkt zum Auftragsverarbeitungsvertrag mit Supabase (Abschnitt „Empfänger / Auftragsverarbeiter") sollten vor Veröffentlichung von einer sachkundigen Person geprüft werden.
-  </div>
-
   <h2>1. Verantwortlicher</h2>
   <div class="card">
     Thorsten Hungenberg<br>
     Karolingerstraße 94, 40223 Düsseldorf<br>
-    E-Mail: hungenberg.software@gmail.com
+    E-Mail: <a href="mailto:hungenberg.software@gmail.com">hungenberg.software@gmail.com</a>
   </div>
 
   <h2>2. Kurzübersicht</h2>
-  <p>Rezeptfänger speichert deine Rezepte, deinen Wochenplan, deine Einkaufsliste und deine Supermarkt-Routen <strong>in erster Linie lokal auf deinem Gerät</strong> – das ist die maßgebliche Datenquelle der App. Damit du dieselben Daten auf mehreren Geräten und mit anderen Haushaltsmitgliedern teilen kannst, werden dieselben Daten zusätzlich mit einem Server (Supabase, Betrieb in Frankfurt am Main) abgeglichen. Für das automatische Auslesen von Rezepten aus Fotos, Links oder Sprachaufnahmen wird der jeweilige Inhalt an Google (Gemini-API) übermittelt. Ein Konto ist nicht zwingend erforderlich; ohne gesichertes Konto läuft die Nutzung anonym.</p>
-
-  <h2>3. Welche Daten werden serverseitig verarbeitet – und wofür</h2>
-  <p><strong>Haushalts-Nutzdaten</strong> (Rezepte, Wochenplan, Einkaufsliste, Supermarkt-Routen, Rezeptfotos): Diese Daten gehören dem <strong>Haushalt</strong>, nicht einer einzelnen Person – es gibt kein Feld, das eine Zeile technisch verbindlich einer Person zuordnet. Rezepte tragen zusätzlich einen Namens-Schnappschuss der erstellenden Person (<code>author</code>) sowie eine interne Kennung der erstellenden Person (<code>author_user_id</code>), über die die App den <em>aktuellen</em> Anzeigenamen auflöst. Diese Kennung ist nicht fest mit dem Konto verknüpft (kein automatisches Löschen bei Konto-Löschung) und bleibt daher auch stehen, wenn die erstellende Person ihr Konto später löscht, solange sie nicht das letzte Mitglied des Haushalts ist (siehe Abschnitt 5).</p>
-  <p><strong>Konto/Anmeldung:</strong> Bei rein anonymer Nutzung wird keine E-Mail-Adresse gespeichert. Wird ein Konto „gesichert" (z. B. um es auf einem neuen Gerät wiederherzustellen), wird die angegebene E-Mail-Adresse gespeichert.</p>
-  <p><strong>Haushalts-Mitgliedschaft:</strong> welchem Haushalt ein Konto angehört, ein selbstgesetzter Anzeigename (kein Klarname erforderlich, keine E-Mail) und eine Rolle (Eigentümer/Mitglied) – sichtbar für die anderen Mitglieder desselben Haushalts.</p>
-  <p><strong>KI-Guthaben:</strong> ein Zähler des verbleibenden KI-Nutzungskontingents je Person und je Haushalt (aktuell ein Startguthaben, keine Zahlungsdaten).</p>
-  <p><strong>Lizenz-/Kaufstatus:</strong> der Freischaltstatus des Kontos.</p>
-  <p>Rechtsgrundlage für diese Verarbeitungen ist die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO) – sie sind die technische Voraussetzung für Haushalts-Synchronisierung, gemeinsame Nutzung und Guthabenverwaltung. Für Maßnahmen gegen Missbrauch (z. B. Ratenbegrenzung) kann zusätzlich ein berechtigtes Interesse (lit. f) einschlägig sein. <span style="color: var(--muted); font-size: 0.9em;">(Eigene fachliche Einschätzung, keine geprüfte Rechtsauffassung.)</span></p>
-
-  <h2>4. Rezept-Erfassung per KI (Google Gemini)</h2>
-  <p>Wenn du ein Rezept per Foto, Link oder Sprachaufnahme erfassen lässt, übermittelt die App das jeweilige Foto, den abgerufenen Seiteninhalt bzw. die Sprachaufnahme zur Verarbeitung an <strong>Google</strong> (Gemini-API). Diese Übermittlung läuft über eine eigene, von uns betriebene Vermittlungsstelle im Hintergrund; dein Zugangsschlüssel für diesen Dienst liegt dabei nie in der App, sondern ausschließlich serverseitig bei uns.</p>
-  <p>Diese Datenübermittlung erfolgt in ein <strong>Drittland (USA)</strong>, da Google LLC dort ansässig ist. Einzelheiten zur Verarbeitung durch Google findest du in Googles eigenen Datenschutzhinweisen zur Gemini-API.</p>
-  <div class="todo">TODO vor Veröffentlichung: Prüfen, ob mit Google Standardvertragsklauseln bestehen oder eine EU-Datenresidenz-Option genutzt wird, und hier ergänzen. Im Code/Vertrag aktuell nicht ersichtlich.</div>
-  <p>Die Rezept-Erfassung ist eine Kernfunktion der App; sie läuft ebenfalls über die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO), nicht über eine gesonderte Einwilligung. <span style="color: var(--muted); font-size: 0.9em;">(Eigene fachliche Einschätzung, keine geprüfte Rechtsauffassung.)</span></p>
-
-  <h2>5. Speicherdauer und Löschung</h2>
-  <p>Deine Daten bleiben gespeichert, solange dein Konto bzw. dein Haushalt besteht. Einzelheiten zur Löschung von Konto und Server-Daten – inklusive der Fälle „ich bin nicht das letzte Haushaltsmitglied" und „ich bin das letzte Haushaltsmitglied" – findest du in der eigenen Ressource <a href="konto-loeschen.html">„Konto und Daten löschen"</a>.</p>
-  <p><strong>Lokale Daten</strong> (die Rezeptdatenbank und Fotos auf deinem Gerät) sind davon nicht betroffen – sie verschwinden ausschließlich durch Deinstallation der App.</p>
-
-  <h2>6. Empfänger / Auftragsverarbeiter</h2>
   <ul>
-    <li><strong>Supabase</strong> (Datenbank, Foto-Speicher, Authentifizierung), Projekt-Region Frankfurt am Main (EU).</li>
-    <li><strong>Google</strong> (Gemini-API, Drittlandübermittlung USA) – siehe Abschnitt 4.</li>
+    <li>Du meldest dich mit deinem <strong>Google-Konto</strong> an. Ein eigenes Passwort für die App gibt es nicht.</li>
+    <li>Deine Rezepte, dein Wochenplan, deine Einkaufsliste und deine Supermarkt-Routen liegen <strong>auf deinem Gerät</strong>. Mit einem gekauften Zugang werden sie zusätzlich auf einem Server in <strong>Frankfurt am Main</strong> gesichert und mit deinem Haushalt geteilt.</li>
+    <li>Für die <strong>KI-Funktionen</strong> (Rezept aus Foto, Link oder Sprache auslesen, Einkaufsliste sortieren, Zutaten der Preisliste zuordnen) werden die jeweiligen Inhalte an <strong>Google (Gemini-API)</strong> übermittelt.</li>
+    <li><strong>Käufe</strong> wickelt <strong>Google Play</strong> ab. Zahlungsdaten wie Kreditkarten- oder Kontonummern erhalten wir nie.</li>
+    <li>Rezepte, die du übernimmst, sind <strong>nur für deinen privaten Gebrauch</strong> bestimmt. Wir werten sie nicht aus, veröffentlichen sie nicht und nutzen sie nicht für eigene Zwecke.</li>
+    <li>Es gibt <strong>keine Werbung</strong> und <strong>kein Tracking</strong>.</li>
   </ul>
-  <div class="todo">TODO vor Veröffentlichung: Klären, ob und wo ein Auftragsverarbeitungsvertrag mit Supabase abgeschlossen ist (Supabase bietet ein eigenes DPA zum Abschluss im Dashboard an), und hier bestätigen.</div>
-  <p>Ein Analytics- oder Tracking-Dienst wird nicht eingesetzt.</p>
 
-  <h2>7. Server-Logfiles / Hosting</h2>
-  <p>Diese Web-Seite selbst (Datenschutzerklärung und Lösch-Ressource) wird bei <strong>GitHub Pages</strong> gehostet. Beim Aufruf der Seite verarbeitet GitHub automatisch technische Zugriffsdaten (u. a. IP-Adresse, Datum/Uhrzeit des Zugriffs, aufgerufene Datei, verwendeter Browser) in Server-Logfiles – unabhängig davon, ob auf der Seite selbst ein Tracking-Skript eingebunden ist. Rechtsgrundlage ist das berechtigte Interesse am sicheren und funktionsfähigen Betrieb der Seite (Art. 6 Abs. 1 lit. f DSGVO). Einzelheiten zur Verarbeitung durch GitHub (GitHub, Inc./GitHub B.V.) finden sich in GitHubs eigenen Datenschutzhinweisen.</p>
+  <h2>3. Welche Daten wir verarbeiten – und wofür</h2>
 
-  <h2>8. Deine Rechte</h2>
-  <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch gegen die Verarbeitung deiner Daten. Wende dich dazu an die in Abschnitt 1 genannte Kontaktadresse. Außerdem hast du das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
+  <h3>3.1 Anmeldung über Google</h3>
+  <p>Beim ersten Start meldest du dich mit deinem Google-Konto an. Dabei übermittelt Google uns deine <strong>E-Mail-Adresse</strong>, eine <strong>Google-Kontokennung</strong> sowie die Angaben, die in deinem Google-Profil hinterlegt sind (in der Regel <strong>Name</strong> und die <strong>Adresse deines Profilbilds</strong>). Wir speichern diese Angaben zusammen mit einer internen Nutzerkennung, damit du nach einem Handywechsel oder einer Neuinstallation mit demselben Google-Konto wieder an deine Daten kommst. Dein Google-Passwort erhalten wir nicht.</p>
+  <p>Im Profil der App kannst du auf ein anderes Google-Konto wechseln. Die Daten des bisherigen Kontos bleiben dabei erhalten.</p>
 
-  <h2>9. Kinder</h2>
-  <p>Die App enthält keine technische Alterskontrolle. Sie ist nicht für die gezielte Nutzung durch Kinder konzipiert, kann eine Nutzung durch Kinder aber nicht ausschließen.</p>
+  <h3>3.2 Haushalts-Daten</h3>
+  <p><strong>Rezepte, Wochenplan, Einkaufsliste, Supermarkt-Routen und Rezeptfotos</strong> gehören dem <strong>Haushalt</strong>, nicht einer einzelnen Person. Rezepte tragen zusätzlich einen Namens-Schnappschuss der erstellenden Person sowie deren interne Kennung, damit die App den aktuellen Anzeigenamen anzeigen kann.</p>
+  <p>In einem Haushalt mit <strong>Haushaltszugang</strong> sehen bis zu fünf Mitglieder diese Daten gemeinsam. Wer beitritt, braucht dafür einen <strong>Einladungscode</strong>, den ein Mitglied erzeugt. Zur Mitgliedschaft speichern wir, welchem Haushalt ein Konto angehört, einen selbst gewählten <strong>Anzeigenamen</strong> (kein Klarname nötig) und eine <strong>Rolle</strong> (Eigentümer/Mitglied). Diese Angaben sehen die anderen Mitglieder desselben Haushalts.</p>
 
-  <h2>10. Änderungen dieser Erklärung</h2>
-  <p>Diese Erklärung wird bei Bedarf angepasst, wenn sich die Verarbeitung ändert.</p>
-  <p>Stand: 06.08.2026</p>
+  <h3>3.3 Sicherung in der Cloud</h3>
+  <p>Während der kostenlosen <strong>Testphase (14 Tage)</strong> bleiben deine Haushalts-Daten ausschließlich auf deinem Gerät. Mit einem gekauften Zugang werden sie automatisch mit dem Server abgeglichen – als Sicherung und, beim Haushaltszugang, zum Teilen. Im Profil kannst du den Abgleich unter „Mit der Cloud abgleichen" jederzeit ausschalten; dann bleibt alles nur auf diesem Gerät.</p>
 
-  <!-- TODO: Sobald Billing eingeführt wird (Store-Session, Projektdoku Abschnitt 11a), wird der jeweilige Store (z. B. Google Play) als Zahlungsabwickler zu einem weiteren Auftragsverarbeiter/Empfänger. Bei Einführung hier in Abschnitt 6 ergänzen -- nicht vergessen, nicht vorab erfinden. -->
+  <h3>3.4 Übernommene Rezepte: nur für den privaten Gebrauch</h3>
+  <p>Rezepte, die du per Foto, Link oder Hand in die App übernimmst – etwa aus einem Kochbuch oder von einer Rezeptseite –, sind <strong>ausschließlich für deinen privaten Gebrauch</strong> und den deines Haushalts bestimmt. Für die Rechte an der Vorlage bist du selbst verantwortlich; die App ist dafür ein Werkzeug, wie ein Notizbuch.</p>
+  <p>Wir als Anbieter <strong>verwenden deine Rezepte nicht für eigene Zwecke</strong>: Wir werten sie nicht aus, veröffentlichen oder verkaufen sie nicht, geben sie nicht an andere Nutzer außerhalb deines Haushalts weiter und nutzen sie nicht zum Trainieren einer KI. Auf unserem Server liegen sie nur, wenn du die <strong>Cloud-Sicherung</strong> nutzt (mit gekauftem Zugang, siehe 3.3) – und dann allein, um sie dir und deinem Haushalt auf deinen Geräten bereitzustellen.</p>
+  <p>Beim Auslesen per KI werden die <strong>Zutaten und Mengen</strong> übernommen; die Zubereitungsschritte können dabei <strong>in eigenen Worten</strong> zusammengefasst werden.</p>
+
+  <h3>3.5 Zugang, Käufe und KI-Guthaben</h3>
+  <ul>
+    <li><strong>Zugangsstatus:</strong> ob du dich in der Testphase befindest oder einen Zugang gekauft hast (Einzeln oder Haushalt), und bis wann er läuft.</li>
+    <li><strong>Käufe:</strong> Bei einem Kauf erhalten wir von Google Play eine <strong>Kaufkennung</strong> (Kauf-Token), die Produktbezeichnung und den Zeitpunkt. Die Kaufkennung schicken wir zur Prüfung an Google zurück, damit nur echte Käufe freigeschaltet werden. Wir speichern Kaufkennung, Produkt und Zeitpunkt, damit derselbe Kauf nicht doppelt gutgeschrieben wird.</li>
+    <li><strong>KI-Guthaben:</strong> ein Zähler, wie viele KI-Abfragen dir und deinem Haushalt noch zur Verfügung stehen. Welche Inhalte du an die KI geschickt hast, speichern wir nicht.</li>
+  </ul>
+
+  <h3>3.6 Einstellungen</h3>
+  <p>Damit das Tutorial nach einem Gerätewechsel nicht erneut startet, speichern wir, welche Erklärungen du bereits gesehen hast.</p>
+
+  <h3>3.7 Rechtsgrundlage</h3>
+  <p>Diese Verarbeitungen sind für die Nutzung der App nötig: Anmeldung, Sicherung, Teilen im Haushalt, Freischaltung gekaufter Zugänge und Guthabenverwaltung. Rechtsgrundlage ist die <strong>Vertragserfüllung</strong> (Art. 6 Abs. 1 lit. b DSGVO). Für Maßnahmen gegen Missbrauch, etwa die Prüfung von Käufen und die Begrenzung von KI-Abfragen, stützen wir uns zusätzlich auf unser <strong>berechtigtes Interesse</strong> (Art. 6 Abs. 1 lit. f DSGVO).</p>
+
+  <h2>4. Was auf deinem Gerät bleibt</h2>
+  <ul>
+    <li><strong>Rezept als Bild teilen:</strong> Das Bild wird auf deinem Gerät erzeugt und über die Teilen-Funktion deines Handys weitergegeben. Wohin, entscheidest du; wir erhalten davon nichts.</li>
+    <li><strong>Fotos zuschneiden</strong> und die <strong>Preisschätzung</strong> laufen vollständig auf dem Gerät.</li>
+    <li><strong>Datensicherung als Datei:</strong> Der Export im Profil erzeugt eine Datei auf deinem Gerät. Was du damit tust, entscheidest du.</li>
+  </ul>
+
+  <h2>5. KI-Funktionen (Google Gemini)</h2>
+  <p>Für folgende Funktionen übermittelt die App Inhalte an die <strong>Gemini-API von Google</strong>:</p>
+  <ul>
+    <li><strong>Rezept aus Foto:</strong> das Foto bzw. die Fotos.</li>
+    <li><strong>Rezept aus Link:</strong> die Rezeptangaben der Seite (Titel, Zutaten, Zubereitung, Portionen, Zeiten). Die Seite selbst ruft dein Gerät ab, nicht Google.</li>
+    <li><strong>Spracheingabe:</strong> die Sprachaufnahme.</li>
+    <li><strong>Einkaufsliste sortieren</strong> und <strong>Zutaten der Preisliste zuordnen:</strong> die Namen der betroffenen Artikel bzw. Zutaten. Ob die KI dabei hilft, stellst du im Profil ein.</li>
+  </ul>
+  <p>Die Übermittlung läuft über eine eigene Vermittlungsstelle auf unserem Server; der Zugangsschlüssel zu Google liegt nie in der App. Wir nutzen die <strong>kostenpflichtige</strong> Gemini-API. Google verwendet die übermittelten Inhalte dabei nach eigenen Angaben <strong>nicht zur Verbesserung seiner Produkte</strong> und verarbeitet sie nach den Bedingungen für die Gemini-API als Auftragsverarbeiter. Zur Missbrauchserkennung kann Google Anfragen für eine begrenzte Zeit speichern.</p>
+  <p>Google LLC hat ihren Sitz in den <strong>USA</strong>. Die Übermittlung dorthin stützt sich auf das <strong>EU-US Data Privacy Framework</strong>, unter dem Google zertifiziert ist, sowie auf die von Google vereinbarten <strong>Standardvertragsklauseln</strong> der EU-Kommission.</p>
+  <p>Die KI-Funktionen sind Teil der App und laufen über die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO). Du kannst die App auch ohne sie nutzen und Rezepte von Hand anlegen.</p>
+
+  <h2>6. Empfänger und Auftragsverarbeiter</h2>
+  <ul>
+    <li><strong>Supabase</strong> (Datenbank, Foto-Speicher, Anmeldung), Serverstandort <strong>Frankfurt am Main (EU)</strong>. Mit Supabase besteht ein Vertrag zur Auftragsverarbeitung.</li>
+    <li><strong>Google</strong> als Anbieter der Gemini-API (siehe Abschnitt 5), der Google-Anmeldung (siehe Abschnitt 3.1) und von <strong>Google Play</strong>, über das Kauf und Zahlung abgewickelt werden. Für die Zahlung selbst gelten die Datenschutzhinweise von Google Play.</li>
+  </ul>
+  <p>Ein Analyse-, Werbe- oder Tracking-Dienst wird nicht eingesetzt.</p>
+
+  <h2>7. Speicherdauer und Löschung</h2>
+  <p>Deine Daten bleiben gespeichert, solange dein Konto bzw. dein Haushalt besteht.</p>
+  <p>Du kannst dein Konto <strong>jederzeit in der App löschen</strong> (Profil › Konto). Wie das genau abläuft, auch ohne App, und was mit den Haushalts-Daten passiert, wenn du nicht das letzte Mitglied bist, steht unter <a href="konto-loeschen.html">„Konto und Daten löschen"</a>.</p>
+  <p>Mit dem Konto löschen wir auch Zugangsstatus, KI-Guthaben und die gespeicherten <strong>Kaufkennungen</strong>. Die Kaufbelege selbst führt Google Play; für sie gelten die Aufbewahrungsregeln von Google.</p>
+  <p>Die Daten <strong>auf deinem Gerät</strong> verschwinden mit der Deinstallation der App.</p>
+
+  <h2>8. Diese Web-Seite</h2>
+  <p>Diese Seite und die Seite zur Konto-Löschung liegen bei <strong>GitHub Pages</strong> (GitHub Inc., USA). Beim Aufruf verarbeitet GitHub automatisch technische Zugriffsdaten (u. a. IP-Adresse, Zeitpunkt, aufgerufene Datei, Browser). Rechtsgrundlage ist das berechtigte Interesse an einem sicheren Betrieb der Seite (Art. 6 Abs. 1 lit. f DSGVO).</p>
+
+  <h2>9. Deine Rechte</h2>
+  <p>Du hast das Recht auf <strong>Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit</strong> und <strong>Widerspruch</strong>. Schreib dazu an die Adresse in Abschnitt 1. Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren, zum Beispiel bei der Landesbeauftragten für Datenschutz und Informationsfreiheit Nordrhein-Westfalen.</p>
+
+  <h2>10. Kinder</h2>
+  <p>Die App richtet sich nicht gezielt an Kinder und enthält keine technische Alterskontrolle.</p>
+
+  <h2>11. Änderungen dieser Erklärung</h2>
+  <p>Wir passen diese Erklärung an, wenn sich die Verarbeitung ändert.</p>
 
   <footer>
-    Stand dieser Seite: siehe Datum der letzten Änderung im Quell-Repository. Siehe auch: <a href="konto-loeschen.html">Konto und Daten löschen</a>.
+    Stand: 24. November 2026 · Siehe auch: <a href="konto-loeschen.html">Konto und Daten löschen</a>
   </footer>
 </main>
 </body>
